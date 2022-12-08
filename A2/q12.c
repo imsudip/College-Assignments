@@ -18,6 +18,65 @@ struct node *head = NULL;
 
 void insert(int data)
 {
+    // prompt the user where to insert the new node
+    int choice;
+    int dataToInsertAfter;
+    printf("Where do you want to insert the new node?\n");
+    printf("1. At the beginning\n");
+    printf("2. At the end\n");
+    printf("3. After a specified node\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+    struct node *newNode = (struct node *)malloc(sizeof(struct node));
+    newNode->data = data;
+    newNode->next = NULL;
+    if (head == NULL)
+    {
+        head = newNode;
+    }
+    else
+    {
+        if (choice == 1)
+        {
+            newNode->next = head;
+            head = newNode;
+        }
+        else if (choice == 2)
+        {
+            struct node *temp = head;
+            while (temp->next != NULL)
+            {
+                temp = temp->next;
+            }
+            temp->next = newNode;
+        }
+        else if (choice == 3)
+        {
+            printf("Enter the data of the node after which you want to insert the new node: ");
+            scanf("%d", &dataToInsertAfter);
+            int isPresent = search(dataToInsertAfter);
+            if (isPresent == 0)
+            {
+                printf("The element is not present in the list.\n");
+                return;
+            }
+            struct node *temp = head;
+            while (temp->data != dataToInsertAfter)
+            {
+                temp = temp->next;
+            }
+            newNode->next = temp->next;
+            temp->next = newNode;
+                }
+        else
+        {
+            printf("Invalid choice.\n");
+        }
+    }
+}
+
+void insertAtEnd(int data)
+{
     struct node *newNode = (struct node *)malloc(sizeof(struct node));
     newNode->data = data;
     newNode->next = NULL;
@@ -36,7 +95,7 @@ void insert(int data)
     }
 }
 
-void delete (int data)
+void delete(int data)
 {
     int isPresent = search(data);
     if (isPresent == 0)
@@ -98,7 +157,7 @@ int main()
     {
         printf("Enter the element %d: ", i + 1);
         scanf("%d", &data);
-        insert(data);
+        insertAtEnd(data);
     }
     printf("The list is: ");
     print();

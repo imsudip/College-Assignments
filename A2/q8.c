@@ -79,17 +79,16 @@ void decToBin(int n)
 }
 
 // f)
-double cos(int n, int x)
+double find_cos(double x, int n, double res)
 {
-    static int i = 1;
-    double s;
-    if (n == 0)
-        return 1;
+    if (n > 0)
+    {
+        res = 1 - ((x * x * res) / (n * (n - 1)));
+        return find_cos(x, n - 2, res);
+    }
     else
     {
-        s = cos(n - 1, x);
-        i += 2;
-        return (-s * x * x) / i * (i - 1);
+        return res;
     }
 }
 
@@ -98,7 +97,8 @@ int main()
     // menu driven program
     while (1)
     {
-        int ch, n, a, b, x, arr[200];
+        int ch, n, a, b, arr[200];
+        double x, res;
         printf("1. Fibonacci series\n");
         printf("2. GCD of two numbers\n");
         printf("3. Permutations of n numbers\n");
@@ -150,15 +150,14 @@ int main()
             printf("\n");
             break;
         case 6:
+            res = 1;
             printf("Enter the number of terms: ");
             scanf("%d", &n);
             printf("Enter the value of x: ");
-            scanf("%d", &x);
+            scanf("%lf", &x);
             printf("Cos series: ");
-            for (int i = 0; i < n; i++)
-            {
-                printf("%lf ", cos(i, x));
-            }
+            res = find_cos(x, n, 1);
+            printf("cos(%lf) = %lf", x, res);
             printf("\n");
             break;
         case 7:
