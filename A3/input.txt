@@ -1,0 +1,33 @@
+input for q3.c
+
+10
+94875614
+Joe weller
+1500
+94875648
+John smith
+2000
+94875615
+Natasha smith
+800
+94875619
+Meghan ryan
+750.5
+94875620
+karl thomas
+988.88
+94875621
+luke olaf
+250
+94875622
+maggie davis
+500
+94875623
+tyler williams
+60000
+94875624
+james smith
+500
+94875625
+hannah baker
+30000
