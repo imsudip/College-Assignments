@@ -97,16 +97,16 @@ template <class T>
 class MinStack : public Stack<T>
 {
 public:
-    MinStack() : Stack() {}
+    MinStack() : Stack<T>() {}
     void push(T value)
     {
         try
         {
-            Stack::isEmpty();
-            T min = Stack::peek();
+            Stack<T>::isEmpty();
+            T min = Stack<T>::peek();
             if (value < min)
             {
-                Stack::push(value);
+                Stack<T>::push(value);
             }
             else
             {
@@ -115,7 +115,7 @@ public:
         }
         catch (Exception e)
         {
-            Stack::push(value);
+            Stack<T>::push(value);
             return;
         }
     }
@@ -221,10 +221,10 @@ public:
 
 int main()
 {
-    MinStack<myDate> s;
-    MinStack<height> s1;
+    // MinStack<myDate> s;
+    MinStack<height> s;
     int choice, depth;
-    myDate n;
+    height n;
     do
     {
         cout << "1. Push" << endl;

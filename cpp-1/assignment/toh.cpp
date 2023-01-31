@@ -154,8 +154,8 @@ int main()
     cout << "Enter number of disks: ";
     cin >> n;
     MinStack *source = new MinStack(n, "A");
-    MinStack *destination = new MinStack(n, "B");
-    MinStack *auxiliary = new MinStack(n, "C");
+    MinStack *destination = new MinStack(n, "C");
+    MinStack *auxiliary = new MinStack(n, "B");
     for (int i = n; i > 0; i--)
     {
         source->push(i);
