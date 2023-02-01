@@ -4,10 +4,6 @@
       "**/*.bin":true,
     
     },
-    "files.associations": {
-      "iostream": "cpp",
-      "xstring": "cpp"
-    },
   
    
   }

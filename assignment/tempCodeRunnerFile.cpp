@@ -1,0 +1,1 @@
+"Stack " + name + "is empty"
