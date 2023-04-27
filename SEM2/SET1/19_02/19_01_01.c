@@ -1,22 +1,3 @@
-// Write a menu-driven program in C to perform the following operations in
-// an integer array allocated memory dynamically. The list may grow or
-// shrink compared to the initial allocation as and when required. Multiple
-// operations may be performed on the existing list without recompiling/reexecuting the program. The individual operation should be implemented
-// using a single function.
-// List of operations:
-// a) Create
-// b) Display the entire list
-// c) Count (total number of elements in the list)
-// d) Reverse the list (reversed list should be stored in the same array)
-// e) Index of a given element (all indices if there are duplicate entries)
-// f) Indexed element
-// g) Insert
-// h) Delete
-// i) Merge
-// j) Split
-// k) Sort
-// l) Search
-
 #include <stdio.h>
 #include <stdlib.h>
 

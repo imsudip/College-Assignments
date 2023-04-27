@@ -1,27 +1,3 @@
-// 1. Write a menu-driven program that performs the following on a single
-// linked list. (Write a function for each of the operations)
-// I. Create a linked list.
-// II. Print the content of the list.
-// III. Insert an element at the front of the list
-// IV. Insert an element at the end of the list
-// V. Insert a node after the kth node.
-// VI. Insert a node after the node (first from the start) containing a
-// given value.
-// VII. Insert a node before the kth node.
-// VIII. Insert a node before the node (first from the start) containing a
-// given value.
-// IX. Delete the first node.
-// X. Delete the last node.
-// XI. Delete a node after the kth node.
-// XII. Delete a node before the kth node.
-// XIII. Delete the kth node.
-// XIV. Delete the node(first from the start) containing a specified value.
-// XV. Find the reverse of a list(not just printing in reverse)
-// XVI. Sort the list
-// XVII. Search a given element
-// XVIII. Merge two lists; those are in ascending order.
-// XIX. Concatenate two list
-// XX. Find if two lists are equal(Boolean output)
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
