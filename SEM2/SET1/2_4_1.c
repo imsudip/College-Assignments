@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define N 100
+#define N 1000
 
 int findNextAlive(int a[][2], int n, int i, int dir)
 {
