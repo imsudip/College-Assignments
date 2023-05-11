@@ -39,6 +39,18 @@ void insertAtEnd(int data)
     newNode->prev = temp;
 }
 
+void createLinkedList()
+{
+    int n, x;
+    printf("enter the number nodes: ");
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &x);
+        insertAtEnd(x);
+    }
+}
+
 void insertAfterKthNode(int data, int k)
 {
     Node *newNode = (Node *)malloc(sizeof(Node));
@@ -54,12 +66,12 @@ void insertAfterKthNode(int data, int k)
     for (int i = 0; i < k - 1; i++)
     {
         if (temp == NULL)
-            return; // k is greater than the number of nodes in the list
+            return;
         temp = temp->next;
     }
     newNode->next = temp->next;
     if (temp->next != NULL)
-        temp->next->prev = newNode; // if k is not the last node
+        temp->next->prev = newNode;
     temp->next = newNode;
     newNode->prev = temp;
 }
@@ -77,7 +89,7 @@ void insertAfterValue(int data, int value)
     }
     Node *temp = head;
     while (temp != NULL && temp->data != value)
-        temp = temp->next; // find the first node with the given value
+        temp = temp->next;
     if (temp == NULL)
         return; // value not found in the list
     newNode->next = temp->next;
@@ -294,6 +306,7 @@ int main()
     while (1)
     {
         printf("\nDoubly Linked List Operations:\n");
+        printf("0. Create LinkedList\n");
         printf("1. Insert at front\n");
         printf("2. Insert at end\n");
         printf("3. Insert after kth node\n");
@@ -313,6 +326,9 @@ int main()
         scanf("%d", &choice);
         switch (choice)
         {
+        case 0:
+            createLinkedList();
+            break;
         case 1:
             printf("\nEnter data: ");
             scanf("%d", &data);
