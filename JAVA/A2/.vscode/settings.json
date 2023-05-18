@@ -1,0 +1,11 @@
+{
+    "files.exclude": {
+      "**/*.exe": true, 
+      "**/*.bin":true,
+      "**/*.o":true,
+    //   "**/*.class":true,
+    
+    },
+  
+   
+  }
