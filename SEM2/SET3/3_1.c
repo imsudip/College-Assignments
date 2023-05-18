@@ -3,82 +3,96 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void push(int **stack, int *top, int *size, int data)
+typedef struct
 {
-    if (*top == *size - 1)
-    {
-        *size *= 2;
-        *stack = (int *)realloc(*stack, *size * sizeof(int));
-    }
-    (*top)++;
-    (*stack)[*top] = data;
+    int *data;
+    int top;
+} Stack;
+
+Stack *createStack()
+{
+    Stack *stack = (Stack *)malloc(sizeof(Stack));
+    stack->data = (int *)malloc(sizeof(int));
+    stack->top = -1;
+    return stack;
 }
 
-int pop(int **stack, int *top)
+int isEmpty(Stack *stack)
 {
-    if (*top == -1)
-    {
-        printf("Stack underflow\n");
-        return -1;
-    }
-    int data = (*stack)[*top];
-    (*top)--;
-    return data;
+    return stack->top == -1;
 }
 
-void display(int *stack, int top)
+void push(Stack *stack, int value)
 {
-    if (top == -1)
+    // resize array
+    if (stack->top == -1)
+    {
+        stack->data = (int *)realloc(stack->data, sizeof(int));
+    }
+    else
+    {
+        stack->data = (int *)realloc(stack->data, sizeof(int) * (stack->top + 2));
+    }
+}
+
+int pop(Stack *stack)
+{
+    if (isEmpty(stack))
     {
         printf("Stack is empty\n");
-        return;
+        return -1;
     }
-    printf("Stack: ");
-    for (int i = 0; i <= top; i++)
-    {
-        printf("%d ", stack[i]);
-    }
-    printf("\n");
+    return stack->data[stack->top--];
 }
 
-// menu driven program
+int peek(Stack *stack)
+{
+    if (isEmpty(stack))
+    {
+        printf("Stack is empty\n");
+        return -1;
+    }
+    return stack->data[stack->top];
+}
+
+// menu driven
 int main()
 {
-    int *stack = (int *)malloc(1 * sizeof(int));
-    int top = -1;
-    int size = 1;
-    int choice;
-    int data;
+    int choice, value;
+    Stack *stack = createStack();
     while (1)
     {
         printf("1. Push\n");
         printf("2. Pop\n");
-        printf("3. Display\n");
+        printf("3. Peek\n");
         printf("4. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
         switch (choice)
         {
         case 1:
-            printf("Enter the data: ");
-            scanf("%d", &data);
-            push(&stack, &top, &size, data);
+            printf("Enter value to push: ");
+            scanf("%d", &value);
+            push(stack, value);
             break;
         case 2:
-            data = pop(&stack, &top);
-            if (data != -1)
+            value = pop(stack);
+            if (value != -1)
             {
-                printf("Popped data: %d\n", data);
+                printf("Popped value is %d\n", value);
             }
             break;
         case 3:
-            display(stack, top);
+            value = peek(stack);
+            if (value != -1)
+            {
+                printf("Topmost element is %d\n", value);
+            }
             break;
         case 4:
             exit(0);
-        default:
-            printf("Invalid choice\n");
         }
-        }
+        printf("\n");
+    }
     return 0;
 }
