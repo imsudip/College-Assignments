@@ -33,6 +33,7 @@ void push(Stack *stack, int value)
     {
         stack->data = (int *)realloc(stack->data, sizeof(int) * (stack->top + 2));
     }
+    stack->data[++stack->top] = value;
 }
 
 int pop(Stack *stack)
