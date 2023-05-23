@@ -26,12 +26,17 @@ public class q2 {
             if (choice == 1) {
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
-                
-                System.out.print("Enter street: ");
+                System.out.print("premisesNumber: ");
+                String premisesNumber = scanner.nextLine();
+                System.out.print("street: ");
                 String street = scanner.nextLine();
-                System.out.print("Enter pin: ");
+                System.out.print("city: ");
+                String city = scanner.nextLine();
+                System.out.print("pin: ");
                 String pin = scanner.nextLine();
-                Address address = new Address(street, pin);
+                System.out.print("state: ");
+                String state = scanner.nextLine();
+                Address address = new Address(premisesNumber, street, city, pin, state);
                 System.out.print("Enter phone number: ");
                 String phoneNumber = scanner.nextLine();
                 System.out.print("Enter email: ");
@@ -45,11 +50,17 @@ public class q2 {
             } else if (choice == 2) {
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
+                System.out.print("Enter premises number: ");
+                String premisesNumber = scanner.nextLine();
                 System.out.print("Enter street: ");
                 String street = scanner.nextLine();
+                System.out.print("Enter city: ");
+                String city = scanner.nextLine();
                 System.out.print("Enter pin: ");
                 String pin = scanner.nextLine();
-                Address address = new Address(street, pin);
+                System.out.print("Enter state: ");
+                String state = scanner.nextLine();
+                Address address = new Address(premisesNumber, street, city, pin, state);
                 System.out.print("Enter phone number: ");
                 String phoneNumber = scanner.nextLine();
                 System.out.print("Enter email: ");
@@ -115,3 +126,5 @@ public class q2 {
         }
     }
 }
+
+// write a demo input to all the cases for the above program
