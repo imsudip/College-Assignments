@@ -1,9 +1,7 @@
-// 10.Implement a system that can handle multiple queues (n queues).
+// 16.Implement a circular queue using an array.
 
 #include <stdio.h>
 #include <stdlib.h>
-
-#define MAX_QUEUES 3
 
 typedef struct
 {
@@ -30,7 +28,7 @@ int isEmpty(Queue *queue)
 
 int isFull(Queue *queue)
 {
-    return queue->rear == queue->size - 1;
+    return (queue->rear + 1) % queue->size == queue->front;
 }
 
 void enqueue(Queue *queue, int value)
@@ -40,11 +38,12 @@ void enqueue(Queue *queue, int value)
         printf("Queue is full\n");
         return;
     }
-    queue->data[++queue->rear] = value;
-    if (queue->front == -1)
+    if (isEmpty(queue))
     {
         queue->front = 0;
     }
+    queue->rear = (queue->rear + 1) % queue->size;
+    queue->data[queue->rear] = value;
 }
 
 int dequeue(Queue *queue)
@@ -61,62 +60,68 @@ int dequeue(Queue *queue)
     }
     else
     {
-        queue->front++;
+        queue->front = (queue->front + 1) % queue->size;
     }
     return value;
 }
 
-int peek(Queue *queue)
+void printQueue(Queue *queue)
 {
     if (isEmpty(queue))
     {
         printf("Queue is empty\n");
-        return -1;
+        return;
     }
-    return queue->data[queue->front];
+    if (queue->front <= queue->rear)
+    {
+        for (int i = queue->front; i <= queue->rear; i++)
+        {
+            printf("%d ", queue->data[i]);
+        }
+    }
+    else
+    {
+        for (int i = queue->front; i < queue->size; i++)
+        {
+            printf("%d ", queue->data[i]);
+        }
+        for (int i = 0; i <= queue->rear; i++)
+        {
+            printf("%d ", queue->data[i]);
+        }
+    }
+    printf("\n");
 }
 
 int main()
 {
-    // Menu driven program for queue operations
-    int choice, value, queueNumber;
-    Queue *queues[MAX_QUEUES];
-    for (int i = 0; i < MAX_QUEUES; i++)
-    {
-        queues[i] = createQueue(100);
-    }
-
+    Queue *queue = createQueue(5);
+    int choice, value;
     while (1)
     {
-        printf("1. Enqueue\n2. Dequeue\n3. Peek\n4. Exit\n");
+        printf("Circular Queue size 5\n");
+        printf("1. Enqueue\n");
+        printf("2. Dequeue\n");
+        printf("3. Print queue\n");
+        printf("4. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
         switch (choice)
         {
         case 1:
-            printf("Enter the queue number (0-%d): ", MAX_QUEUES - 1);
-            scanf("%d", &queueNumber);
-            printf("Enter the value to be enqueued: ");
+            printf("Enter value to enqueue: ");
             scanf("%d", &value);
-            enqueue(queues[queueNumber], value);
+            enqueue(queue, value);
             break;
         case 2:
-            printf("Enter the queue number (0-%d): ", MAX_QUEUES - 1);
-            scanf("%d", &queueNumber);
-            value = dequeue(queues[queueNumber]);
+            value = dequeue(queue);
             if (value != -1)
             {
-                printf("The value dequeued is %d\n", value);
+                printf("Dequeued element: %d\n", value);
             }
             break;
         case 3:
-            printf("Enter the queue number (0-%d): ", MAX_QUEUES - 1);
-            scanf("%d", &queueNumber);
-            value = peek(queues[queueNumber]);
-            if (value != -1)
-            {
-                printf("The value at the front is %d\n", value);
-            }
+            printQueue(queue);
             break;
         case 4:
             exit(0);
@@ -124,4 +129,5 @@ int main()
             printf("Invalid choice\n");
         }
     }
+    return 0;
 }

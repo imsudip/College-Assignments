@@ -1,5 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
+import BookList.Book;
+import MemberList.Member;
+import Transaction.TransactionEntry;
 
 public class Q3 implements LibraryManagementSystem {
     private List<Book> bookList;
@@ -124,7 +129,7 @@ public class Q3 implements LibraryManagementSystem {
 
             if (member != null && book != null) {
                 transactionEntry.markReturned();
-                book.increaseCopies(1);
+                book.setAvailableCopies(book.getAvailableCopies() + 1);
                 member.decrementBooksIssued();
                 System.out.println("Book returned successfully!");
             } else {
@@ -132,6 +137,17 @@ public class Q3 implements LibraryManagementSystem {
             }
         } else {
             System.out.println("Transaction entry not found.");
+        }
+    }
+
+    @Override
+    public void addCopies(String bookId, int copies) {
+        Book book = findBook(bookId);
+        if (book != null) {
+            book.increaseCopies(copies);
+            System.out.println("Copies added successfully!");
+        } else {
+            System.out.println("Book not found.");
         }
     }
 
@@ -165,31 +181,102 @@ public class Q3 implements LibraryManagementSystem {
     public static void main(String[] args) {
         LibraryManagementSystem library = new Q3();
 
-        // Add books
-        library.addBook("B001", "Book 1", 5);
-        library.addBook("B002", "Book 2", 3);
-        library.addBook("B003", "Book 3", 2);
+        int choice = 0;
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println("1. Add new book in booklist");
+            System.out.println("2. Add more copies for a book");
+            System.out.println("3. Show all book details");
+            System.out.println("4. Show details of a book");
+            System.out.println("5. Add member in the list");
+            System.out.println("6. Show all members");
+            System.out.println("7. Show details of a member");
+            System.out.println("8. Issue a book");
+            System.out.println("9. Return a book");
+            System.out.println("---------------q4-----------------");
+            System.out.println("10. Search book");
+            System.out.println("11. Search member");
+            System.out.println("12. exit");
+            System.out.println("Enter your choice: ");
+            choice = sc.nextInt();
+            sc.nextLine();
+            switch (choice) {
+                case 1:
+                    System.out.println("Enter book id: ");
+                    String bookId = sc.nextLine();
+                    System.out.println("Enter title: ");
+                    String title = sc.nextLine();
+                    // sc.nextLine();
+                    System.out.println("Enter total copies: ");
+                    int totalCopies = sc.nextInt();
+                    library.addBook(bookId, title, totalCopies);
+                    break;
+                case 2:
+                    System.out.println("Enter book id: ");
+                    bookId = sc.nextLine();
+                    System.out.println("Enter number of copies to be added: ");
+                    int copies = sc.nextInt();
+                    library.addCopies(bookId, copies);
+                    break;
+                case 3:
+                    library.viewAllBooks();
+                    break;
+                case 4:
+                    System.out.println("Enter book id: ");
+                    bookId = sc.nextLine();
+                    library.searchBook(bookId);
+                    break;
+                case 5:
+                    System.out.println("Enter member id: ");
+                    String memberId = sc.nextLine();
+                    System.out.println("Enter name: ");
+                    String name = sc.nextLine();
+                    System.out.println("Enter date of birth: ");
+                    String dateOfBirth = sc.nextLine();
+                    library.addMember(memberId, name, dateOfBirth);
+                    break;
+                case 6:
+                    library.viewAllMembers();
+                    break;
+                case 7:
+                    System.out.println("Enter member id: ");
+                    memberId = sc.nextLine();
+                    library.searchMember(memberId);
+                    break;
+                case 8:
+                    System.out.println("Enter member id: ");
+                    memberId = sc.nextLine();
+                    System.out.println("Enter book id: ");
+                    bookId = sc.nextLine();
+                    library.issueBook(memberId, bookId);
+                    break;
+                case 9:
+                    System.out.println("Enter member id: ");
+                    memberId = sc.nextLine();
+                    System.out.println("Enter book id: ");
+                    bookId = sc.nextLine();
+                    library.returnBook(memberId, bookId);
+                    break;
+                case 10:
+                    System.out.println("Enter book id: ");
+                    bookId = sc.nextLine();
+                    library.searchBook(bookId);
+                    break;
+                case 11:
+                    System.out.println("Enter member id: ");
+                    memberId = sc.nextLine();
+                    library.searchMember(memberId);
+                    break;
+                case 12:
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+                    break;
 
-        // Add members
-        library.addMember("M001", "John Doe", "1990-01-01");
-        library.addMember("M002", "Jane Smith", "1992-05-15");
+            }
+        }
 
-        // View all books
-        library.viewAllBooks();
-
-        // View all members
-        library.viewAllMembers();
-
-        // Search book
-        library.searchBook("B002");
-
-        // Search member
-        library.searchMember("M001");
-
-        // Issue a book
-        library.issueBook("M001", "B001");
-
-        // Return a book
-        library.returnBook("M001", "B001");
     }
+
 }

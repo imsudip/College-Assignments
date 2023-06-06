@@ -14,4 +14,6 @@ public interface LibraryManagementSystem {
     void issueBook(String memberId, String bookId);
 
     void returnBook(String memberId, String bookId);
+
+    void addCopies(String bookId, int copies);
 }
