@@ -1,0 +1,3 @@
+Directory name: .
+Size in bytes: 15276
+Size in KB: 52K

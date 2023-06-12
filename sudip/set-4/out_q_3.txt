@@ -1,0 +1,2 @@
+give folder path
+Total number of bytes used by files is: 0

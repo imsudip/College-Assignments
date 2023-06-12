@@ -1,0 +1,18 @@
+Total number of directories: 0
+Total number of files: 11
+
+out_q_2.txt -> File
+out_q_3.txt -> File
+q_1 -> File
+q_1.c -> File
+q_1.c -> File
+q_2 -> File
+q_2.c -> File
+q_2.c -> File
+q_3 -> File
+q_3.c -> File
+q_3.c -> File
+q_4 -> File
+q_4.c -> File
+q_4.c -> File
+tempCodeRunnerFile.c -> File

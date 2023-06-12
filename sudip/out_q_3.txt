@@ -1,0 +1,64 @@
+vendor_id	: GenuineIntel
+vendor_id	: GenuineIntel
+vendor_id	: GenuineIntel
+vendor_id	: GenuineIntel
+vendor_id	: GenuineIntel
+vendor_id	: GenuineIntel
+vendor_id	: GenuineIntel
+vendor_id	: GenuineIntel
+vendor_id	: GenuineIntel
+vendor_id	: GenuineIntel
+vendor_id	: GenuineIntel
+vendor_id	: GenuineIntel
+vendor_id	: GenuineIntel
+vendor_id	: GenuineIntel
+vendor_id	: GenuineIntel
+vendor_id	: GenuineIntel
+model name	: 12th Gen Intel(R) Core(TM) i5-1240P
+model name	: 12th Gen Intel(R) Core(TM) i5-1240P
+model name	: 12th Gen Intel(R) Core(TM) i5-1240P
+model name	: 12th Gen Intel(R) Core(TM) i5-1240P
+model name	: 12th Gen Intel(R) Core(TM) i5-1240P
+model name	: 12th Gen Intel(R) Core(TM) i5-1240P
+model name	: 12th Gen Intel(R) Core(TM) i5-1240P
+model name	: 12th Gen Intel(R) Core(TM) i5-1240P
+model name	: 12th Gen Intel(R) Core(TM) i5-1240P
+model name	: 12th Gen Intel(R) Core(TM) i5-1240P
+model name	: 12th Gen Intel(R) Core(TM) i5-1240P
+model name	: 12th Gen Intel(R) Core(TM) i5-1240P
+model name	: 12th Gen Intel(R) Core(TM) i5-1240P
+model name	: 12th Gen Intel(R) Core(TM) i5-1240P
+model name	: 12th Gen Intel(R) Core(TM) i5-1240P
+model name	: 12th Gen Intel(R) Core(TM) i5-1240P
+cpu MHz		: 2112.000
+cpu MHz		: 2112.000
+cpu MHz		: 2112.000
+cpu MHz		: 2112.000
+cpu MHz		: 2112.000
+cpu MHz		: 2112.000
+cpu MHz		: 2112.000
+cpu MHz		: 2112.000
+cpu MHz		: 2112.000
+cpu MHz		: 2112.000
+cpu MHz		: 2112.000
+cpu MHz		: 2112.000
+cpu MHz		: 2112.000
+cpu MHz		: 2112.000
+cpu MHz		: 2112.000
+cpu MHz		: 2112.000
+cache size	: 12288 KB
+cache size	: 12288 KB
+cache size	: 12288 KB
+cache size	: 12288 KB
+cache size	: 12288 KB
+cache size	: 12288 KB
+cache size	: 12288 KB
+cache size	: 12288 KB
+cache size	: 12288 KB
+cache size	: 12288 KB
+cache size	: 12288 KB
+cache size	: 12288 KB
+cache size	: 12288 KB
+cache size	: 12288 KB
+cache size	: 12288 KB
+cache size	: 12288 KB

@@ -1,0 +1,16 @@
+Total number of directories: 4
+Total number of files: 9
+
+menu_driven.sh -> File
+out_q_1.txt -> File
+out_q_2.txt -> File
+out_q_3.txt -> File
+out_q_4.txt -> File
+out_q_5.txt -> File
+output-5.txt -> File
+set-1/ -> Directory
+set-2/ -> Directory
+set-3/ -> Directory
+set-4/ -> Directory
+set_1_1_out.tx -> File
+set_1_1_out.txt -> File

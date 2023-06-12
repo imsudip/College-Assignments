@@ -1,0 +1,14 @@
+Total number of directories: 0
+Total number of files: 11
+
+assi3_01.sh -> File
+assi3_02.sh -> File
+assi3_03.sh -> File
+assi3_04.sh -> File
+assi3_05.sh -> File
+assi3_06.sh -> File
+input_1.txt -> File
+out_q_1.txt -> File
+out_q_2.txt -> File
+out_q_3.txt -> File
+out_q_6.txt -> File
