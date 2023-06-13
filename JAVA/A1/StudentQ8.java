@@ -3,36 +3,30 @@ public class StudentQ8 {
     private String name;
     private int score;
 
-    // Constructor with roll only
     public StudentQ8(int roll) {
         this.roll = roll;
     }
 
-    // Constructor with roll and name only
     public StudentQ8(int roll, String name) {
         this.roll = roll;
         this.name = name;
     }
 
-    // Constructor with roll, name, and score
     public StudentQ8(int roll, String name, int score) {
         this.roll = roll;
         this.name = name;
         this.score = score;
     }
 
-    // Default constructor with no values
     public StudentQ8() {
     }
 
-    // Copy constructor
     public StudentQ8(StudentQ8 other) {
         this.roll = other.roll;
         this.name = other.name;
         this.score = other.score;
     }
 
-    // Setter methods
     public void setRoll(int roll) {
         this.roll = roll;
     }
@@ -61,21 +55,39 @@ public class StudentQ8 {
 
     // main
     public static void main(String[] args) {
-        StudentQ8 student1 = new StudentQ8(1, "John", 85);
-        StudentQ8 student2 = new StudentQ8(2, "Mary", 92);
+        // Add constructors in the Student class of earlier problems so
+        // that objects can be created with i) roll only, ii) roll and name only, iii)
+        // roll,
+        // name, and score, iv) no value. Also include a copy constructor. Check
+        // whether constructors are working or not. Verify, copy constructors result in
+        // deep copy or not.
+
+        // roll only
+        StudentQ8 student1 = new StudentQ8(1);
+        // roll and name only
+        StudentQ8 student2 = new StudentQ8(2, "Mary");
+        // roll, name, and score
+        StudentQ8 student3 = new StudentQ8(3, "John", 85);
+        // no value
+        StudentQ8 student4 = new StudentQ8();
+        // copy constructor
+        StudentQ8 student5 = new StudentQ8(student3);
 
         student1.display();
         student2.display();
+        student3.display();
+        student4.display();
+        student5.display();
 
-        // Modify attributes of studentQ81
-        student1.setRoll(3);
-        student1.setName("Bob");
-        student1.setScore(78);
+        // deep copy check
+        student3.setRoll(4);
+        student3.setName("Bob");
+        student3.setScore(78);
 
-        // Copy studentQ81 to studentQ82
-        student1.copy(student2);
+        student3.display();
+        student5.display();
 
-        student1.display();
-        student2.display();
+        System.out.println("Deep copy verified");
+
     }
 }
